@@ -38,7 +38,7 @@ File Description:
 
 	To test the output of the function:
 	(1) Install openCV.
-	(2) Navigate to the output fil in you CLI (terminal or cmd).
+	(2) Navigate to the output file in your CLI (terminal or cmd).
 	(2) Type "opencv_createsample -w img_width -h img_height -vec output_filename". 
 		This should show the .vec files in sequence.
 
@@ -64,7 +64,7 @@ def merge_vec_files(vec_directory, output_vec_file):
 
 	The format of a .vec file is:
 
-	4 bytes denoting total images (int)
+	4 bytes denoting number of total images (int)
 	4 bytes denoting size of images (int)
 	2 bytes denoting min value (short)
 	2 bytes denoting max value (short)
