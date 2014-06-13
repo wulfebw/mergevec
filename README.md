@@ -16,7 +16,7 @@ Mergevec.py is used to merge .vec files for use in training a cascade with openC
 	(2) Navigate to the output file in you CLI (terminal or cmd).
 	(2) Type "opencv_createsample -w img_width -h img_height -vec output_filename". This should show the .vec files in sequence.
 
-The aggregate .vec output from megevec.py has successfully been used to train a cascade. See the below for resources on training cascade classifiers.
+The aggregate .vec output from mergevec.py has successfully been used to train a cascade. See the below for resources on training cascade classifiers.
 
 #opencv_traincascade Resources
 
