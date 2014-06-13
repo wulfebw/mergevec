@@ -4,15 +4,19 @@ Author: blake.w.wulfe@gmail.com
 Date: 6/13/2014
 File Description:
 
-	This file contains a function that merges .vec files called merge_vec_files. I made it as a replacement for mergevec.cpp created by Naotoshi Seo (See: http://note.sonots.com/SciSoftware/haartraining/mergevec.cpp.html). 
+	This file contains a function that merges .vec files called "merge_vec_files". I made it as a replacement for mergevec.cpp (created by Naotoshi Seo. See: http://note.sonots.com/SciSoftware/haartraining/mergevec.cpp.html) in order to avoid having to recompile openCV with mergevec.cpp. 
 
 	To use the function:
-	(1) Place all .vec files to be merged in a single directory (vec_directory)
-	(2) Go to the bottom of the file and enter this vec_directory along with an output filename
-	(3) Navigate to this file in your CLI (terminal or cmd) and type "python mergevec.py"
+	(1) Place all .vec files to be merged in a single directory (vec_directory).
+	(2) Go to the bottom of this file and enter the vec_directory along with an output filename.
+	(3) Navigate to this file in your CLI (terminal or cmd) and type "python mergevec.py".
+
+	To test the output of the function:
+	(1) Install openCV.
+	(2) Navigate to the output fil in you CLI (terminal or cmd).
+	(2) Type "opencv_createsample -w img_width -h img_height -vec output_filename". This should show the .vec files in sequence.
 
 """
-
 
 import sys
 import glob
@@ -21,9 +25,9 @@ import traceback
 
 def exception_response(e):
 	exc_type, exc_value, exc_traceback = sys.exc_info()
-		lines = traceback.format_exception(exc_type, exc_value, exc_traceback)
-		for line in lines:
-			print(line):
+	lines = traceback.format_exception(exc_type, exc_value, exc_traceback)
+	for line in lines:
+		print(line)
 
 def merge_vec_files(vec_directory, output_vec_file):
 	"""
@@ -46,10 +50,11 @@ def merge_vec_files(vec_directory, output_vec_file):
 		dec	    100         1350			0 		0
 
 	:type vec_directory: string
-	:param vec_directory: Name of the directory containing .vec files to be combined
+	:param vec_directory: Name of the directory containing .vec files to be combined. Do not end with slash. Ex: '/Users/username/Documents/vec_files'
 
 	:type output_vec_file: string
-	:param output_vec_file: Name of aggregate .vec file for output
+	:param output_vec_file: Name of aggregate .vec file for output. 
+		Ex: '/Users/username/Documents/aggregate_vec_file.vec'
 
 	"""
 
@@ -64,6 +69,11 @@ def merge_vec_files(vec_directory, output_vec_file):
 	if len(files) == 1:
 		print('Only 1 vec file was found in directory: {0}. Cannot merge a single file.'.format(vec_directory))
 		sys.exit(1)
+
+
+	# Check that the .vec directory does not end in '/' and if it does, remove it.
+	if vec_directory.endswith('/'):
+		vec_directory = vec_directory[:-1]
 
 
 	# Get the value for the first image size
@@ -117,7 +127,7 @@ def merge_vec_files(vec_directory, output_vec_file):
 
 if __name__ == '__main__':
 	# fill in the directory name and the output filename below
-	vec_directory = 
-	output_filename = 
+	vec_directory = 			# ex: '/Users/user_name/vec'
+	output_filename = 			# ex: '/Users/user_name/aggregate_vec.vec'
 	merge_vec_files(vec_directory, output_filename)
 
