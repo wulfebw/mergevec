@@ -84,8 +84,11 @@ def merge_vec_files(vec_directory, output_vec_file):
 		Ex: '/Users/username/Documents/aggregate_vec_file.vec'
 
 	"""
-
-
+	
+	# Check that the .vec directory does not end in '/' and if it does, remove it.
+	if vec_directory.endswith('/'):
+		vec_directory = vec_directory[:-1]
+	# Get .vec files
 	files = glob.glob('{0}/*.vec'.format(vec_directory))
 
 	# Check to make sure there are .vec files in the directory
@@ -96,12 +99,7 @@ def merge_vec_files(vec_directory, output_vec_file):
 	if len(files) == 1:
 		print('Only 1 vec file was found in directory: {0}. Cannot merge a single file.'.format(vec_directory))
 		sys.exit(1)
-
-
-	# Check that the .vec directory does not end in '/' and if it does, remove it.
-	if vec_directory.endswith('/'):
-		vec_directory = vec_directory[:-1]
-
+		
 
 	# Get the value for the first image size
 	prev_image_size = 0
