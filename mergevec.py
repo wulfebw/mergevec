@@ -71,13 +71,13 @@ def merge_vec_files(vec_directory, output_vec_file):
 
 	ex: 	6400 0000 4605 0000 0000 0000
 
-		hex		6400 0000  	4605 0000 		0000 	0000
-			   	# images  	size of h * w	min		max
-		dec	    100         1350			0 		0
-
+		hex		6400 0000  	4605 0000 		0000 		0000
+			   	# images  	size of h * w		min		max
+		dec	    	100     	1350			0 		0
+	
 	:type vec_directory: string
 	:param vec_directory: Name of the directory containing .vec files to be combined. 
-						  Do not end with slash. Ex: '/Users/username/Documents/vec_files'
+				Do not end with slash. Ex: '/Users/username/Documents/vec_files'
 
 	:type output_vec_file: string
 	:param output_vec_file: Name of aggregate .vec file for output. 
