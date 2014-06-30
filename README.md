@@ -7,8 +7,7 @@ Mergevec.py is used to merge .vec files for use in training a cascade with openC
 
 	(1) Place all .vec files to be merged in a single directory ("vec_directory").
 	(2) Download mergevec.py
-	(3) Go to the bottom of mergevec.py and enter the vec_directory name along with an output filename.
-	(4) Navigate to mergevec.py in your CLI (terminal or cmd) and type "python mergevec.py".
+	(3) Navigate to mergevec.py in your CLI (terminal or cmd) and type "python mergevec.py -v your_vec_directory -o your_output_filename.dat".
 
 #To test the output of mergevec.py:
 
