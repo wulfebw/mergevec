@@ -82,21 +82,24 @@ def merge_vec_files(vec_directory, output_vec_file):
 
 	ex: 	6400 0000 4605 0000 0000 0000
 
-		hex		6400 0000  	4605 0000 		0000 	0000
-			   	# images  	size of h * w	min		max
-		dec	    100         1350			0 		0
-
+		hex		6400 0000  	4605 0000 		0000 		0000
+			   	# images  	size of h * w		min		max
+		dec	    	100     	1350			0 		0
+	
 	:type vec_directory: string
 	:param vec_directory: Name of the directory containing .vec files to be combined. 
-						  Do not end with slash. Ex: '/Users/username/Documents/vec_files'
+				Do not end with slash. Ex: '/Users/username/Documents/vec_files'
 
 	:type output_vec_file: string
 	:param output_vec_file: Name of aggregate .vec file for output. 
 		Ex: '/Users/username/Documents/aggregate_vec_file.vec'
 
 	"""
-
-
+	
+	# Check that the .vec directory does not end in '/' and if it does, remove it.
+	if vec_directory.endswith('/'):
+		vec_directory = vec_directory[:-1]
+	# Get .vec files
 	files = glob.glob('{0}/*.vec'.format(vec_directory))
 
 	# Check to make sure there are .vec files in the directory
@@ -107,12 +110,7 @@ def merge_vec_files(vec_directory, output_vec_file):
 	if len(files) == 1:
 		print('Only 1 vec file was found in directory: {0}. Cannot merge a single file.'.format(vec_directory))
 		sys.exit(1)
-
-
-	# Check that the .vec directory does not end in '/' and if it does, remove it.
-	if vec_directory.endswith('/'):
-		vec_directory = vec_directory[:-1]
-
+		
 
 	# Get the value for the first image size
 	prev_image_size = 0
