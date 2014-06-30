@@ -33,8 +33,10 @@ File Description:
 
 	To use the function:
 	(1) Place all .vec files to be merged in a single directory (vec_directory).
-	(2) Go to the bottom of this file and enter the vec_directory along with an output filename.
-	(3) Navigate to this file in your CLI (terminal or cmd) and type "python mergevec.py".
+	(2) Navigate to this file in your CLI (terminal or cmd) and type "python mergevec.py -v your_vec_directory -o your_output_filename".
+
+		The first argument (-v) is the name of the directory containing the .vec files
+		The second argument (-o) is the name of the output file
 
 	To test the output of the function:
 	(1) Install openCV.
@@ -47,13 +49,22 @@ File Description:
 import sys
 import glob
 import struct
+import argparse
 import traceback
+
 
 def exception_response(e):
 	exc_type, exc_value, exc_traceback = sys.exc_info()
 	lines = traceback.format_exception(exc_type, exc_value, exc_traceback)
 	for line in lines:
 		print(line)
+
+def get_args():
+	parser = argparse.ArgumentParser()
+	parser.add_argument('-v', dest='vec_directory')
+	parser.add_argument('-o', dest='output_filename')
+	args = parser.parse_args()
+	return (args.vec_directory, args.output_filename)
 
 def merge_vec_files(vec_directory, output_vec_file):
 	"""
@@ -125,10 +136,9 @@ def merge_vec_files(vec_directory, output_vec_file):
 				num_images = val[0]
 				image_size = val[1]
 				if image_size != prev_image_size:
-					print('The image sizes in the .vec files differ. These values must be the same.')
-					print('The image size of file {0}: {1}'.format(f, image_size))
-					print('The image size of previous files: {0}'.format(prev_image_size))
-					sys.exit(1)
+					err_msg = """The image sizes in the .vec files differ. These values must be the same. \n The image size of file {0}: {1}\n 
+						The image size of previous files: {0}""".format(f, image_size, prev_image_size)
+					sys.exit(err_msg)
 
 				total_num_images += num_images
 		except IOError as e:
@@ -153,8 +163,6 @@ def merge_vec_files(vec_directory, output_vec_file):
 
 
 if __name__ == '__main__':
-	# fill in the directory name and the output filename below
-	vec_directory = 			# ex: '/Users/user_name/vec'
-	output_filename = 			# ex: '/Users/user_name/aggregate_vec.vec'
+	vec_directory, output_filename = get_args()
 	merge_vec_files(vec_directory, output_filename)
 
