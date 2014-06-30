@@ -162,5 +162,10 @@ def merge_vec_files(vec_directory, output_vec_file):
 
 if __name__ == '__main__':
 	vec_directory, output_filename = get_args()
+	if not vec_directory:
+		sys.exit('mergvec requires a directory of vec files. Call mergevec.py with -v /your_vec_directory')
+	if not output_filename:
+		sys.exit('mergevec requires an output filename. Call mergevec.py with -o your_output_filename')
+
 	merge_vec_files(vec_directory, output_filename)
 
