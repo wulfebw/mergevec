@@ -1,7 +1,7 @@
 mergevec
 ========
 
-Mergevec.py is used to merge .vec files for use in training a cascade with openCV's opencv_traincascade. This code was made as replacement for mergevec.cpp (created by Naotoshi Seo. See: http://note.sonots.com/SciSoftware/haartraining/mergevec.cpp.html) in order to avoid recompiling opencv with mergevec.cpp. 
+Mergevec.py is used to merge .vec files for use in training a cascade classifier with openCV's opencv_traincascade. This code was made as replacement for mergevec.cpp (created by Naotoshi Seo. See: http://note.sonots.com/SciSoftware/haartraining/mergevec.cpp.html) in order to avoid recompiling opencv with mergevec.cpp. 
 
 #To use mergevec.py:
 
