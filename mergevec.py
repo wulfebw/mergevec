@@ -116,7 +116,7 @@ def merge_vec_files(vec_directory, output_vec_file):
 	prev_image_size = 0
 	try:
 		with open(files[0], 'rb') as vecfile:
-			content = ''.join(vecfile.readlines())
+			content = ''.join(str(line) for line in vecfile.readlines())
 			val = struct.unpack('<iihh', content[:12])
 			prev_image_size = val[1]
 	except IOError as e:
@@ -129,7 +129,7 @@ def merge_vec_files(vec_directory, output_vec_file):
 	for f in files:
 		try:
 			with open(f, 'rb') as vecfile:	
-				content = ''.join(vecfile.readlines())
+				content = ''.join(str(line) for line in vecfile.readlines())
 				val = struct.unpack('<iihh', content[:12])
 				num_images = val[0]
 				image_size = val[1]
@@ -153,7 +153,7 @@ def merge_vec_files(vec_directory, output_vec_file):
 
 			for f in files:
 				with open(f, 'rb') as vecfile:
-					content = ''.join(vecfile.readlines())
+					content = ''.join(str(line) for line in vecfile.readlines())
 					data = content[12:]
 					outputfile.write(data)
 	except Exception as e:
