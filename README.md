@@ -1,19 +1,19 @@
 mergevec
 ========
 
-Mergevec.py is used to merge .vec files for use in training a cascade with openCV's opencv_traincascade. This code was made as replacement for mergevec.cpp (created by Naotoshi Seo. See: http://note.sonots.com/SciSoftware/haartraining/mergevec.cpp.html) in order to avoid recompiling opencv with mergevec.cpp. 
+Mergevec.py is used to merge .vec files for use in training a cascade classifier with openCV's opencv_traincascade. This code was made as replacement for mergevec.cpp (created by Naotoshi Seo. See: http://note.sonots.com/SciSoftware/haartraining/mergevec.cpp.html) in order to avoid recompiling opencv with mergevec.cpp. 
 
 #To use mergevec.py:
 
 	(1) Place all .vec files to be merged in a single directory ("vec_directory").
 	(2) Download mergevec.py
-	(3) Navigate to mergevec.py in your CLI (terminal or cmd) and type "python mergevec.py -v your_vec_directory -o your_output_filename.dat".
+	(3) Navigate to mergevec.py in your CLI (terminal or cmd) and enter "python mergevec.py -v your_vec_directory -o your_output_filename.vec".
 
 #To test the output of mergevec.py:
 
 	(1) Install openCV.
 	(2) Navigate to the output file in your CLI (terminal or cmd).
-	(3) Type "opencv_createsample -w img_width -h img_height -vec output_filename". This should show the .vec files in sequence.
+	(3) Type "opencv_createsample -w img_width -h img_height -vec your_output_filename.vec". This should show the .vec files in sequence.
 
 The aggregate .vec output from mergevec.py has successfully been used to train a cascade. See the below for resources on training cascade classifiers.
 #opencv_traincascade Resources
