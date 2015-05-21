@@ -1,7 +1,7 @@
 mergevec
 ========
 
-<i>Update (20/05/15): This approach worked for my purposes, but a few people have raised concerns that using artificial data is not the best way to train a classifier [1]. As such, I would recommend approaching this method with a fair amount of skepticism.<i>
+Update (20/05/15): This approach worked for my purposes, but a few people have raised concerns that using artificial data is not the best way to train a classifier [1]. As such, I would recommend approaching this method with a fair amount of skepticism.
 
 Mergevec.py is used to merge .vec files for use in training a cascade classifier with openCV's opencv_traincascade. This code was made as replacement for mergevec.cpp (created by Naotoshi Seo. See: http://note.sonots.com/SciSoftware/haartraining/mergevec.cpp.html) in order to avoid recompiling opencv with mergevec.cpp. 
 
