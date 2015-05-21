@@ -1,6 +1,8 @@
 mergevec
 ========
 
+<i>Update (20/05/15): This approach worked for my purposes, but a few people have raised concerns that using artificial data is not the best way to train a classifier [1]. As such, I would recommend approaching this method with a fair amount of skepticism.<i>
+
 Mergevec.py is used to merge .vec files for use in training a cascade classifier with openCV's opencv_traincascade. This code was made as replacement for mergevec.cpp (created by Naotoshi Seo. See: http://note.sonots.com/SciSoftware/haartraining/mergevec.cpp.html) in order to avoid recompiling opencv with mergevec.cpp. 
 
 #To use mergevec.py:
@@ -18,14 +20,12 @@ Mergevec.py is used to merge .vec files for use in training a cascade classifier
 The aggregate .vec output from mergevec.py has successfully been used to train a cascade. See the below for resources on training cascade classifiers.
 #opencv_traincascade Resources
 
-OpenCV:
-http://docs.opencv.org/doc/user_guide/ug_traincascade.html
+[1] Counterargument: http://answers.opencv.org/question/55879/opencv-mergevec-haartraining-issues/
 
-Naotoshi Seo:
-http://note.sonots.com/SciSoftware/haartraining.html
+[2] OpenCV: http://docs.opencv.org/doc/user_guide/ug_traincascade.html
 
-Coding Robin:
-http://coding-robin.de/2013/07/22/train-your-own-opencv-haar-classifier.html
+[3] Naotoshi Seo: http://note.sonots.com/SciSoftware/haartraining.html
 
-StackOverflow:
-http://stackoverflow.com/questions/16058080/how-to-train-cascade-properly
+[4] Coding Robin: http://coding-robin.de/2013/07/22/train-your-own-opencv-haar-classifier.html
+
+[5] StackOverflow: http://stackoverflow.com/questions/16058080/how-to-train-cascade-properly
